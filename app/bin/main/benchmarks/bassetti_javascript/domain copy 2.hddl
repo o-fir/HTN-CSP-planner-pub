@@ -1,0 +1,66 @@
+; designed specifically to work with Teexma
+; LIMMS server copy (https://ofir-servier-optiplan.teexma.local/teexma?idObject=47082) to be precise
+; this is NON-temporal simplified domain
+; every task lasts 1 hour
+; there are 3 hierarchy levels
+; - level 1: Studies
+; -- level 2: Activities
+; --- level 3: Tasks
+
+;NOTE - CURRENT PLANNER DOESNT SUPPORT NEGATIVE GOALS (i.e. (not PREDICATE) in goals)
+
+(define (domain bassetti-javascript2)
+
+(:requirements 
+    :hierarchy
+	  :typing
+	  :method-preconditions
+    :negative-preconditions
+)
+
+(:types 
+  study activity task ; hierarchical levels 
+  resource1 resource2 resource3 ; currently we support mono-competency resources. Therefore, resources are declared as competencies 
+  timeslot ; simulation of time
+)
+
+(:predicates 
+ (activity_has_tasks ?a - activity) ;activity can either have sub-tasks or not
+ (is_child ?t - task ?a - activity) ; indicates if task is child of an activity
+ (task_performed ?t - task) ; indicates if task is executed/planned
+ (activity_performed ?a - activity) ;indicates if activity is executed/planned
+)
+
+(:task do_tasks
+  :parameters (?a - activity))
+
+; m0_do_tasks is a recursive method that will try to perform some existing task for activity a, and then call itself again
+; we need this recursivity because domain doesn't know how many tasks are there in an activity
+; NOTE: because tasks need ONE resource of SPECIFIC type, it is more efficient to create a lifted
+; method for every resource type, rather than create predicates (has_competency ?res ?comp) and (needs_competency ?task ?comp) and then adding a parameter ?comp - competency to the method.
+(:method m0_do_tasks
+  :parameters (?a - activity ?t - task ?r - resource ?s - timeslot)
+  :task (do_tasks ?a)
+  :precondition (and (is_child ?t ?a) (has_competency ?r))
+  :ordered-subtasks(and (t1 (schedule_task ?t ?s)) (t2 (do_tasks ?a)) )
+)
+; m1_do_tasks serves as termination for the recursive m0_do_tasks
+(:method m1_do_tasks
+  :parameters (?a - activity)
+  :task (do_tasks ?a)
+  :ordered-subtasks(and (t1 (nop)))
+)
+
+
+(:action schedule_task
+  :parameters (?t - task ?s - timeslot)
+  :precondition (and (not(task_performed ?t)))
+  :effect(and (task_performed ?t))
+)
+
+(:action nop
+  :parameters ()
+  :precondition ()
+  :effect ()
+)
+)

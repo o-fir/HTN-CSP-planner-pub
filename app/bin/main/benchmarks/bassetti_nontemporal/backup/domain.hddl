@@ -1,0 +1,95 @@
+(define (domain domain_htn)
+; variable duration - action of variable duration. Technician takes 2h to report, engineer - 1h
+	(:requirements :typing :hierarchy 
+	  :method-preconditions)
+	(:types
+		timeslot
+	    location
+	    machine - resource
+        technician - resource
+        engineer - resource
+        responsable - resource
+	    report - task
+	)
+	(:predicates
+		(available ?arg0 - resource ?arg1 - timeslot)
+		(member_of ?arg0 - resource ?arg1 - location)
+		(task_at ?arg0 - task ?arg1 - location)
+		(task_todo ?arg0 - task)
+		(time_link ?arg0 - timeslot ?arg1 - timeslot)
+	)
+
+	; ============================
+	; ======== REPORT ============
+	(:task perform_report
+		:parameters (?x - report)
+	)
+
+	(:method m_report_technician
+		:parameters (?x - report ?tek - technician ?m - machine ?l - location ?t1 - timeslot ?t2 - timeslot)
+		:task (perform_report ?x)
+		:precondition (and
+		    (member_of ?tek ?l)
+		    (member_of ?m ?l)
+		    (task_at ?x ?l)
+		)
+		:subtasks (and
+		 (task0 (do_report_technician ?x ?tek ?m ?t1 ?t2))
+		)
+	)
+	(:method m_report_eng
+		:parameters (?x - report ?eng - engineer ?m - machine ?l - location ?t - timeslot)
+		:task (perform_report ?x)
+		:precondition (and
+		    (member_of ?eng ?l)
+		    (member_of ?m ?l)
+		    (task_at ?x ?l)
+		)
+		:subtasks (and
+		 (task0 (do_report_engineer ?x ?eng ?m ?t))
+		)
+	)
+	
+	
+	
+	(:action do_report_technician
+		:parameters (?x - report ?tek - technician ?m - machine ?t1 - timeslot ?t2 - timeslot)
+		:precondition
+			(and
+				(available ?tek ?t1)
+				(available ?tek ?t2)
+				(available ?m ?t1)
+				(available ?m ?t2)
+				(time_link ?t1 ?t2)
+			)
+		:effect 
+		    (and
+		        (not(available ?tek ?t1))
+		        (not(available ?tek ?t2))
+		        (not(available ?m ?t1))
+		        (not(available ?m ?t2))
+		        (not(task_todo ?x))
+		    )
+        
+	)
+	
+	(:action do_report_engineer
+		:parameters (?x - report ?eng - engineer ?m - machine ?t - timeslot)
+		:precondition
+			(and
+				(available ?eng ?t)
+				(available ?m ?t)
+			)
+		:effect 
+		    (and
+		        (not(available ?eng ?t))
+		        (not(available ?m ?t))
+		        (not(task_todo ?x))
+		    )
+        
+	)
+	; ======== REPORT ============
+	; ============================
+	
+	
+)

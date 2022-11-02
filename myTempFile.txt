@@ -1,0 +1,895 @@
+% LAYER 0
+% -- cell action/method variables
+% -- element(action id or method id, layer, cell) - indicates if the action or reduction happens in this cell. A constraint will ensure no two actions may occur simultaneously.% -- primitive(layer, cell) - indicates if the task in the cell is primitive or not. A constraint will be used on this variable to ensure no action and reduction occurs simultaneously. PERSONAL NOTE: Not sure how useful it is, but maybe original TreeRex encoding's language had some quirk that justified creating this variable?
+var bool: element_m1_0_0;
+var bool: element_m2_0_0;
+var bool: element_m3_0_0;
+var bool: primitive_0_0;
+
+var bool: element_m4_0_1;
+var bool: element_m5_0_1;
+var bool: element_m6_0_1;
+var bool: primitive_0_1;
+
+var bool: element_0_0_2;
+var bool: primitive_0_2;
+
+
+% -- cell fact variables
+% -- holds(fact, layer, cell) indicates if fact is true or false
+var bool: holds_0_0_0; % at
+var bool: holds_0_0_1; % at
+var bool: holds_0_0_2; % at
+var bool: holds_1_0_0; % at
+var bool: holds_1_0_1; % at
+var bool: holds_1_0_2; % at
+var bool: holds_2_0_0; % at
+var bool: holds_2_0_1; % at
+var bool: holds_2_0_2; % at
+var bool: holds_3_0_0; % at
+var bool: holds_3_0_1; % at
+var bool: holds_3_0_2; % at
+var bool: holds_4_0_0; % capacity
+var bool: holds_4_0_1; % capacity
+var bool: holds_4_0_2; % capacity
+var bool: holds_5_0_0; % in
+var bool: holds_5_0_1; % in
+var bool: holds_5_0_2; % in
+var bool: holds_6_0_0; % capacity
+var bool: holds_6_0_1; % capacity
+var bool: holds_6_0_2; % capacity
+var bool: holds_7_0_0; % at
+var bool: holds_7_0_1; % at
+var bool: holds_7_0_2; % at
+var bool: holds_8_0_0; % in
+var bool: holds_8_0_1; % in
+var bool: holds_8_0_2; % in
+var bool: holds_9_0_0; % at
+var bool: holds_9_0_1; % at
+var bool: holds_9_0_2; % at
+var bool: holds_10_0_0; % at
+var bool: holds_10_0_1; % at
+var bool: holds_10_0_2; % at
+var bool: holds_11_0_0; % at
+var bool: holds_11_0_1; % at
+var bool: holds_11_0_2; % at
+var bool: holds_12_0_0; % at
+var bool: holds_12_0_1; % at
+var bool: holds_12_0_2; % at
+
+% LAYER 1
+% -- cell action/method variables
+% -- element(action id or method id, layer, cell) - indicates if the action or reduction happens in this cell. A constraint will ensure no two actions may occur simultaneously.% -- primitive(layer, cell) - indicates if the task in the cell is primitive or not. A constraint will be used on this variable to ensure no action and reduction occurs simultaneously. PERSONAL NOTE: Not sure how useful it is, but maybe original TreeRex encoding's language had some quirk that justified creating this variable?
+var bool: element_m7_1_0;
+var bool: element_m8_1_0;
+var bool: element_m9_1_0;
+var bool: element_m12_1_0;
+var bool: element_m13_1_0;
+var bool: element_m14_1_0;
+var bool: element_m15_1_0;
+var bool: element_m16_1_0;
+var bool: element_m18_1_0;
+var bool: element_m19_1_0;
+var bool: element_m20_1_0;
+var bool: primitive_1_0;
+
+var bool: element_m10_1_1;
+var bool: element_m17_1_1;
+var bool: element_m21_1_1;
+var bool: primitive_1_1;
+
+var bool: element_m7_1_2;
+var bool: element_m8_1_2;
+var bool: element_m9_1_2;
+var bool: primitive_1_2;
+
+var bool: element_m11_1_3;
+var bool: primitive_1_3;
+
+var bool: element_m7_1_4;
+var bool: element_m8_1_4;
+var bool: element_m9_1_4;
+var bool: element_m12_1_4;
+var bool: element_m13_1_4;
+var bool: element_m14_1_4;
+var bool: element_m15_1_4;
+var bool: element_m16_1_4;
+var bool: element_m18_1_4;
+var bool: element_m19_1_4;
+var bool: element_m20_1_4;
+var bool: primitive_1_4;
+
+var bool: element_m22_1_5;
+var bool: element_m24_1_5;
+var bool: element_m25_1_5;
+var bool: primitive_1_5;
+
+var bool: element_m18_1_6;
+var bool: element_m19_1_6;
+var bool: element_m20_1_6;
+var bool: primitive_1_6;
+
+var bool: element_m23_1_7;
+var bool: primitive_1_7;
+
+var bool: primitive_1_8;
+
+
+% -- cell fact variables
+% -- holds(fact, layer, cell) indicates if fact is true or false
+var bool: holds_0_1_0; % at
+var bool: holds_0_1_1; % at
+var bool: holds_0_1_2; % at
+var bool: holds_0_1_3; % at
+var bool: holds_0_1_4; % at
+var bool: holds_0_1_5; % at
+var bool: holds_0_1_6; % at
+var bool: holds_0_1_7; % at
+var bool: holds_0_1_8; % at
+var bool: holds_1_1_0; % at
+var bool: holds_1_1_1; % at
+var bool: holds_1_1_2; % at
+var bool: holds_1_1_3; % at
+var bool: holds_1_1_4; % at
+var bool: holds_1_1_5; % at
+var bool: holds_1_1_6; % at
+var bool: holds_1_1_7; % at
+var bool: holds_1_1_8; % at
+var bool: holds_2_1_0; % at
+var bool: holds_2_1_1; % at
+var bool: holds_2_1_2; % at
+var bool: holds_2_1_3; % at
+var bool: holds_2_1_4; % at
+var bool: holds_2_1_5; % at
+var bool: holds_2_1_6; % at
+var bool: holds_2_1_7; % at
+var bool: holds_2_1_8; % at
+var bool: holds_3_1_0; % at
+var bool: holds_3_1_1; % at
+var bool: holds_3_1_2; % at
+var bool: holds_3_1_3; % at
+var bool: holds_3_1_4; % at
+var bool: holds_3_1_5; % at
+var bool: holds_3_1_6; % at
+var bool: holds_3_1_7; % at
+var bool: holds_3_1_8; % at
+var bool: holds_4_1_0; % capacity
+var bool: holds_4_1_1; % capacity
+var bool: holds_4_1_2; % capacity
+var bool: holds_4_1_3; % capacity
+var bool: holds_4_1_4; % capacity
+var bool: holds_4_1_5; % capacity
+var bool: holds_4_1_6; % capacity
+var bool: holds_4_1_7; % capacity
+var bool: holds_4_1_8; % capacity
+var bool: holds_5_1_0; % in
+var bool: holds_5_1_1; % in
+var bool: holds_5_1_2; % in
+var bool: holds_5_1_3; % in
+var bool: holds_5_1_4; % in
+var bool: holds_5_1_5; % in
+var bool: holds_5_1_6; % in
+var bool: holds_5_1_7; % in
+var bool: holds_5_1_8; % in
+var bool: holds_6_1_0; % capacity
+var bool: holds_6_1_1; % capacity
+var bool: holds_6_1_2; % capacity
+var bool: holds_6_1_3; % capacity
+var bool: holds_6_1_4; % capacity
+var bool: holds_6_1_5; % capacity
+var bool: holds_6_1_6; % capacity
+var bool: holds_6_1_7; % capacity
+var bool: holds_6_1_8; % capacity
+var bool: holds_7_1_0; % at
+var bool: holds_7_1_1; % at
+var bool: holds_7_1_2; % at
+var bool: holds_7_1_3; % at
+var bool: holds_7_1_4; % at
+var bool: holds_7_1_5; % at
+var bool: holds_7_1_6; % at
+var bool: holds_7_1_7; % at
+var bool: holds_7_1_8; % at
+var bool: holds_8_1_0; % in
+var bool: holds_8_1_1; % in
+var bool: holds_8_1_2; % in
+var bool: holds_8_1_3; % in
+var bool: holds_8_1_4; % in
+var bool: holds_8_1_5; % in
+var bool: holds_8_1_6; % in
+var bool: holds_8_1_7; % in
+var bool: holds_8_1_8; % in
+var bool: holds_9_1_0; % at
+var bool: holds_9_1_1; % at
+var bool: holds_9_1_2; % at
+var bool: holds_9_1_3; % at
+var bool: holds_9_1_4; % at
+var bool: holds_9_1_5; % at
+var bool: holds_9_1_6; % at
+var bool: holds_9_1_7; % at
+var bool: holds_9_1_8; % at
+var bool: holds_10_1_0; % at
+var bool: holds_10_1_1; % at
+var bool: holds_10_1_2; % at
+var bool: holds_10_1_3; % at
+var bool: holds_10_1_4; % at
+var bool: holds_10_1_5; % at
+var bool: holds_10_1_6; % at
+var bool: holds_10_1_7; % at
+var bool: holds_10_1_8; % at
+var bool: holds_11_1_0; % at
+var bool: holds_11_1_1; % at
+var bool: holds_11_1_2; % at
+var bool: holds_11_1_3; % at
+var bool: holds_11_1_4; % at
+var bool: holds_11_1_5; % at
+var bool: holds_11_1_6; % at
+var bool: holds_11_1_7; % at
+var bool: holds_11_1_8; % at
+var bool: holds_12_1_0; % at
+var bool: holds_12_1_1; % at
+var bool: holds_12_1_2; % at
+var bool: holds_12_1_3; % at
+var bool: holds_12_1_4; % at
+var bool: holds_12_1_5; % at
+var bool: holds_12_1_6; % at
+var bool: holds_12_1_7; % at
+var bool: holds_12_1_8; % at
+
+% RULE 1 - initial state predicates hold in step 0
+constraint holds_0_0_0 = false; % at
+constraint holds_1_0_0 = false; % at
+constraint holds_2_0_0 = true; % at
+constraint holds_3_0_0 = false; % at
+constraint holds_4_0_0 = true; % capacity
+constraint holds_5_0_0 = false; % in
+constraint holds_6_0_0 = false; % capacity
+constraint holds_7_0_0 = false; % at
+constraint holds_8_0_0 = false; % in
+constraint holds_9_0_0 = true; % at
+constraint holds_10_0_0 = true; % at
+constraint holds_11_0_0 = false; % at
+constraint holds_12_0_0 = false; % at
+
+% RULE 2 - for each cell of the initial layer, one of its task reductions must hold
+constraint element_m1_0_0 = true \/ element_m2_0_0 = true \/ element_m3_0_0 = true ;
+constraint element_m4_0_1 = true \/ element_m5_0_1 = true \/ element_m6_0_1 = true ;
+
+% RULE 3 - the last cell of initial layer contains blank
+% rule 3 is enacted during the creation of initial layer
+
+% RULE 4 - at the last position of the initial layer (the blank cell from rule 3), all the goal facts hold
+%%%%%%%%%PROCESSING LAYER 0%%%%%%%%%
+
+% RULE 5 - constraints for changing predicate values upon action execution
+
+% ACTION EXECUTION CONSTRAINTS FOR LAYER 0
+
+
+% RULE 6 - applying a method implies method preconditions
+% Rule 6 not implemented (yet), as not necessary for transport domain
+
+% RULE 7 - mutual exclusion between primitive tasks and reductions
+
+% RULE 7 (Layer 0) - mutual exclusion between primitive tasks and reductions
+constraint element_m1_0_0 -> primitive_0_0 = false;
+constraint element_m2_0_0 -> primitive_0_0 = false;
+constraint element_m3_0_0 -> primitive_0_0 = false;
+constraint element_m4_0_1 -> primitive_0_1 = false;
+constraint element_m5_0_1 -> primitive_0_1 = false;
+constraint element_m6_0_1 -> primitive_0_1 = false;
+
+
+% RULE 8 - frame axioms
+
+% FRAME AXIOM Layer: 0 Cell: 0 
+% fluent: at 
+constraint (holds_0_0_0 = true /\ holds_0_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_0_0_0 = false /\ holds_0_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_1_0_0 = true /\ holds_1_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_1_0_0 = false /\ holds_1_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_2_0_0 = true /\ holds_2_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_2_0_0 = false /\ holds_2_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_3_0_0 = true /\ holds_3_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_3_0_0 = false /\ holds_3_0_1 = true) -> (primitive_0_0 = false );
+% fluent: capacity 
+constraint (holds_4_0_0 = true /\ holds_4_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_4_0_0 = false /\ holds_4_0_1 = true) -> (primitive_0_0 = false );
+% fluent: in 
+constraint (holds_5_0_0 = true /\ holds_5_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_5_0_0 = false /\ holds_5_0_1 = true) -> (primitive_0_0 = false );
+% fluent: capacity 
+constraint (holds_6_0_0 = true /\ holds_6_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_6_0_0 = false /\ holds_6_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_7_0_0 = true /\ holds_7_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_7_0_0 = false /\ holds_7_0_1 = true) -> (primitive_0_0 = false );
+% fluent: in 
+constraint (holds_8_0_0 = true /\ holds_8_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_8_0_0 = false /\ holds_8_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_9_0_0 = true /\ holds_9_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_9_0_0 = false /\ holds_9_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_10_0_0 = true /\ holds_10_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_10_0_0 = false /\ holds_10_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_11_0_0 = true /\ holds_11_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_11_0_0 = false /\ holds_11_0_1 = true) -> (primitive_0_0 = false );
+% fluent: at 
+constraint (holds_12_0_0 = true /\ holds_12_0_1 = false) -> (primitive_0_0 = false );
+constraint (holds_12_0_0 = false /\ holds_12_0_1 = true) -> (primitive_0_0 = false );
+
+
+% FRAME AXIOM Layer: 0 Cell: 1 
+% fluent: at 
+constraint (holds_0_0_1 = true /\ holds_0_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_0_0_1 = false /\ holds_0_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_1_0_1 = true /\ holds_1_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_1_0_1 = false /\ holds_1_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_2_0_1 = true /\ holds_2_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_2_0_1 = false /\ holds_2_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_3_0_1 = true /\ holds_3_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_3_0_1 = false /\ holds_3_0_2 = true) -> (primitive_0_1 = false );
+% fluent: capacity 
+constraint (holds_4_0_1 = true /\ holds_4_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_4_0_1 = false /\ holds_4_0_2 = true) -> (primitive_0_1 = false );
+% fluent: in 
+constraint (holds_5_0_1 = true /\ holds_5_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_5_0_1 = false /\ holds_5_0_2 = true) -> (primitive_0_1 = false );
+% fluent: capacity 
+constraint (holds_6_0_1 = true /\ holds_6_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_6_0_1 = false /\ holds_6_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_7_0_1 = true /\ holds_7_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_7_0_1 = false /\ holds_7_0_2 = true) -> (primitive_0_1 = false );
+% fluent: in 
+constraint (holds_8_0_1 = true /\ holds_8_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_8_0_1 = false /\ holds_8_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_9_0_1 = true /\ holds_9_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_9_0_1 = false /\ holds_9_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_10_0_1 = true /\ holds_10_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_10_0_1 = false /\ holds_10_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_11_0_1 = true /\ holds_11_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_11_0_1 = false /\ holds_11_0_2 = true) -> (primitive_0_1 = false );
+% fluent: at 
+constraint (holds_12_0_1 = true /\ holds_12_0_2 = false) -> (primitive_0_1 = false );
+constraint (holds_12_0_1 = false /\ holds_12_0_2 = true) -> (primitive_0_1 = false );
+
+
+
+% RULE 9 - action mutual exclusion. No two actions may happen simultaneously
+% LAYER: 0 CELL: 0
+% none
+% LAYER: 0 CELL: 1
+% none
+% LAYER: 0 CELL: 2
+% none
+
+
+% RULE 10
+ % LAYER: 0 CELL: 0
+constraint holds_0_0_0 = true -> holds_0_1_0 = true;
+constraint holds_1_0_0 = true -> holds_1_1_0 = true;
+constraint holds_2_0_0 = true -> holds_2_1_0 = true;
+constraint holds_3_0_0 = true -> holds_3_1_0 = true;
+constraint holds_4_0_0 = true -> holds_4_1_0 = true;
+constraint holds_5_0_0 = true -> holds_5_1_0 = true;
+constraint holds_6_0_0 = true -> holds_6_1_0 = true;
+constraint holds_7_0_0 = true -> holds_7_1_0 = true;
+constraint holds_8_0_0 = true -> holds_8_1_0 = true;
+constraint holds_9_0_0 = true -> holds_9_1_0 = true;
+constraint holds_10_0_0 = true -> holds_10_1_0 = true;
+constraint holds_11_0_0 = true -> holds_11_1_0 = true;
+constraint holds_12_0_0 = true -> holds_12_1_0 = true;
+
+ % LAYER: 0 CELL: 1
+constraint holds_0_0_1 = true -> holds_0_1_4 = true;
+constraint holds_1_0_1 = true -> holds_1_1_4 = true;
+constraint holds_2_0_1 = true -> holds_2_1_4 = true;
+constraint holds_3_0_1 = true -> holds_3_1_4 = true;
+constraint holds_4_0_1 = true -> holds_4_1_4 = true;
+constraint holds_5_0_1 = true -> holds_5_1_4 = true;
+constraint holds_6_0_1 = true -> holds_6_1_4 = true;
+constraint holds_7_0_1 = true -> holds_7_1_4 = true;
+constraint holds_8_0_1 = true -> holds_8_1_4 = true;
+constraint holds_9_0_1 = true -> holds_9_1_4 = true;
+constraint holds_10_0_1 = true -> holds_10_1_4 = true;
+constraint holds_11_0_1 = true -> holds_11_1_4 = true;
+constraint holds_12_0_1 = true -> holds_12_1_4 = true;
+
+ % LAYER: 0 CELL: 2
+constraint holds_0_0_2 = true -> holds_0_1_8 = true;
+constraint holds_1_0_2 = true -> holds_1_1_8 = true;
+constraint holds_2_0_2 = true -> holds_2_1_8 = true;
+constraint holds_3_0_2 = true -> holds_3_1_8 = true;
+constraint holds_4_0_2 = true -> holds_4_1_8 = true;
+constraint holds_5_0_2 = true -> holds_5_1_8 = true;
+constraint holds_6_0_2 = true -> holds_6_1_8 = true;
+constraint holds_7_0_2 = true -> holds_7_1_8 = true;
+constraint holds_8_0_2 = true -> holds_8_1_8 = true;
+constraint holds_9_0_2 = true -> holds_9_1_8 = true;
+constraint holds_10_0_2 = true -> holds_10_1_8 = true;
+constraint holds_11_0_2 = true -> holds_11_1_8 = true;
+constraint holds_12_0_2 = true -> holds_12_1_8 = true;
+
+
+
+% RULE 11
+ % LAYER: 0 CELL: 0
+
+ % LAYER: 0 CELL: 1
+
+ % LAYER: 0 CELL: 2
+
+
+
+% RULE 12
+% LAYER: 0 CELL: 0
+% no primitive tasks
+
+% LAYER: 0 CELL: 1
+% no primitive tasks
+
+% LAYER: 0 CELL: 2
+% no primitive tasks
+
+
+
+% RULES 13-15
+% LAYER: 0 CELL: 0
+% Method m_deliver_ordering_0
+constraint element_m1_0_0 = true -> (element_m7_1_0 \/ element_m8_1_0 \/ element_m9_1_0 );
+constraint element_m1_0_0 = true -> (element_m10_1_1 );
+constraint element_m1_0_0 = true -> (element_m7_1_2 \/ element_m8_1_2 \/ element_m9_1_2 );
+constraint element_m1_0_0 = true -> (element_m11_1_3 );
+% Method m_deliver_ordering_0
+constraint element_m2_0_0 = true -> (element_m12_1_0 \/ element_m13_1_0 \/ element_m14_1_0 \/ element_m15_1_0 \/ element_m16_1_0 );
+constraint element_m2_0_0 = true -> (element_m17_1_1 );
+constraint element_m2_0_0 = true -> (element_m7_1_2 \/ element_m8_1_2 \/ element_m9_1_2 );
+constraint element_m2_0_0 = true -> (element_m11_1_3 );
+% Method m_deliver_ordering_0
+constraint element_m3_0_0 = true -> (element_m18_1_0 \/ element_m19_1_0 \/ element_m20_1_0 );
+constraint element_m3_0_0 = true -> (element_m21_1_1 );
+constraint element_m3_0_0 = true -> (element_m7_1_2 \/ element_m8_1_2 \/ element_m9_1_2 );
+constraint element_m3_0_0 = true -> (element_m11_1_3 );
+
+% LAYER: 0 CELL: 1
+% Method m_deliver_ordering_0
+constraint element_m4_0_1 = true -> (element_m7_1_4 \/ element_m8_1_4 \/ element_m9_1_4 );
+constraint element_m4_0_1 = true -> (element_m22_1_5 );
+constraint element_m4_0_1 = true -> (element_m18_1_6 \/ element_m19_1_6 \/ element_m20_1_6 );
+constraint element_m4_0_1 = true -> (element_m23_1_7 );
+% Method m_deliver_ordering_0
+constraint element_m5_0_1 = true -> (element_m12_1_4 \/ element_m13_1_4 \/ element_m14_1_4 \/ element_m15_1_4 \/ element_m16_1_4 );
+constraint element_m5_0_1 = true -> (element_m24_1_5 );
+constraint element_m5_0_1 = true -> (element_m18_1_6 \/ element_m19_1_6 \/ element_m20_1_6 );
+constraint element_m5_0_1 = true -> (element_m23_1_7 );
+% Method m_deliver_ordering_0
+constraint element_m6_0_1 = true -> (element_m18_1_4 \/ element_m19_1_4 \/ element_m20_1_4 );
+constraint element_m6_0_1 = true -> (element_m25_1_5 );
+constraint element_m6_0_1 = true -> (element_m18_1_6 \/ element_m19_1_6 \/ element_m20_1_6 );
+constraint element_m6_0_1 = true -> (element_m23_1_7 );
+
+% LAYER: 0 CELL: 2
+% no methods in the cell
+
+
+%%%%%%%%%PROCESSING LAYER 1%%%%%%%%%
+
+% RULE 5 - constraints for changing predicate values upon action execution
+
+% ACTION EXECUTION CONSTRAINTS FOR LAYER 1
+
+
+% RULE 6 - applying a method implies method preconditions
+% Rule 6 not implemented (yet), as not necessary for transport domain
+
+% RULE 7 - mutual exclusion between primitive tasks and reductions
+
+% RULE 7 (Layer 1) - mutual exclusion between primitive tasks and reductions
+constraint element_m7_1_0 -> primitive_1_0 = false;
+constraint element_m8_1_0 -> primitive_1_0 = false;
+constraint element_m9_1_0 -> primitive_1_0 = false;
+constraint element_m12_1_0 -> primitive_1_0 = false;
+constraint element_m13_1_0 -> primitive_1_0 = false;
+constraint element_m14_1_0 -> primitive_1_0 = false;
+constraint element_m15_1_0 -> primitive_1_0 = false;
+constraint element_m16_1_0 -> primitive_1_0 = false;
+constraint element_m18_1_0 -> primitive_1_0 = false;
+constraint element_m19_1_0 -> primitive_1_0 = false;
+constraint element_m20_1_0 -> primitive_1_0 = false;
+constraint element_m10_1_1 -> primitive_1_1 = false;
+constraint element_m17_1_1 -> primitive_1_1 = false;
+constraint element_m21_1_1 -> primitive_1_1 = false;
+constraint element_m7_1_2 -> primitive_1_2 = false;
+constraint element_m8_1_2 -> primitive_1_2 = false;
+constraint element_m9_1_2 -> primitive_1_2 = false;
+constraint element_m11_1_3 -> primitive_1_3 = false;
+constraint element_m7_1_4 -> primitive_1_4 = false;
+constraint element_m8_1_4 -> primitive_1_4 = false;
+constraint element_m9_1_4 -> primitive_1_4 = false;
+constraint element_m12_1_4 -> primitive_1_4 = false;
+constraint element_m13_1_4 -> primitive_1_4 = false;
+constraint element_m14_1_4 -> primitive_1_4 = false;
+constraint element_m15_1_4 -> primitive_1_4 = false;
+constraint element_m16_1_4 -> primitive_1_4 = false;
+constraint element_m18_1_4 -> primitive_1_4 = false;
+constraint element_m19_1_4 -> primitive_1_4 = false;
+constraint element_m20_1_4 -> primitive_1_4 = false;
+constraint element_m22_1_5 -> primitive_1_5 = false;
+constraint element_m24_1_5 -> primitive_1_5 = false;
+constraint element_m25_1_5 -> primitive_1_5 = false;
+constraint element_m18_1_6 -> primitive_1_6 = false;
+constraint element_m19_1_6 -> primitive_1_6 = false;
+constraint element_m20_1_6 -> primitive_1_6 = false;
+constraint element_m23_1_7 -> primitive_1_7 = false;
+
+
+% RULE 8 - frame axioms
+
+% FRAME AXIOM Layer: 1 Cell: 0 
+% fluent: at 
+constraint (holds_0_1_0 = true /\ holds_0_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_0_1_0 = false /\ holds_0_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_1_1_0 = true /\ holds_1_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_1_1_0 = false /\ holds_1_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_2_1_0 = true /\ holds_2_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_2_1_0 = false /\ holds_2_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_3_1_0 = true /\ holds_3_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_3_1_0 = false /\ holds_3_1_1 = true) -> (primitive_1_0 = false );
+% fluent: capacity 
+constraint (holds_4_1_0 = true /\ holds_4_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_4_1_0 = false /\ holds_4_1_1 = true) -> (primitive_1_0 = false );
+% fluent: in 
+constraint (holds_5_1_0 = true /\ holds_5_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_5_1_0 = false /\ holds_5_1_1 = true) -> (primitive_1_0 = false );
+% fluent: capacity 
+constraint (holds_6_1_0 = true /\ holds_6_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_6_1_0 = false /\ holds_6_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_7_1_0 = true /\ holds_7_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_7_1_0 = false /\ holds_7_1_1 = true) -> (primitive_1_0 = false );
+% fluent: in 
+constraint (holds_8_1_0 = true /\ holds_8_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_8_1_0 = false /\ holds_8_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_9_1_0 = true /\ holds_9_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_9_1_0 = false /\ holds_9_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_10_1_0 = true /\ holds_10_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_10_1_0 = false /\ holds_10_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_11_1_0 = true /\ holds_11_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_11_1_0 = false /\ holds_11_1_1 = true) -> (primitive_1_0 = false );
+% fluent: at 
+constraint (holds_12_1_0 = true /\ holds_12_1_1 = false) -> (primitive_1_0 = false );
+constraint (holds_12_1_0 = false /\ holds_12_1_1 = true) -> (primitive_1_0 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 1 
+% fluent: at 
+constraint (holds_0_1_1 = true /\ holds_0_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_0_1_1 = false /\ holds_0_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_1_1_1 = true /\ holds_1_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_1_1_1 = false /\ holds_1_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_2_1_1 = true /\ holds_2_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_2_1_1 = false /\ holds_2_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_3_1_1 = true /\ holds_3_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_3_1_1 = false /\ holds_3_1_2 = true) -> (primitive_1_1 = false );
+% fluent: capacity 
+constraint (holds_4_1_1 = true /\ holds_4_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_4_1_1 = false /\ holds_4_1_2 = true) -> (primitive_1_1 = false );
+% fluent: in 
+constraint (holds_5_1_1 = true /\ holds_5_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_5_1_1 = false /\ holds_5_1_2 = true) -> (primitive_1_1 = false );
+% fluent: capacity 
+constraint (holds_6_1_1 = true /\ holds_6_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_6_1_1 = false /\ holds_6_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_7_1_1 = true /\ holds_7_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_7_1_1 = false /\ holds_7_1_2 = true) -> (primitive_1_1 = false );
+% fluent: in 
+constraint (holds_8_1_1 = true /\ holds_8_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_8_1_1 = false /\ holds_8_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_9_1_1 = true /\ holds_9_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_9_1_1 = false /\ holds_9_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_10_1_1 = true /\ holds_10_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_10_1_1 = false /\ holds_10_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_11_1_1 = true /\ holds_11_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_11_1_1 = false /\ holds_11_1_2 = true) -> (primitive_1_1 = false );
+% fluent: at 
+constraint (holds_12_1_1 = true /\ holds_12_1_2 = false) -> (primitive_1_1 = false );
+constraint (holds_12_1_1 = false /\ holds_12_1_2 = true) -> (primitive_1_1 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 2 
+% fluent: at 
+constraint (holds_0_1_2 = true /\ holds_0_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_0_1_2 = false /\ holds_0_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_1_1_2 = true /\ holds_1_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_1_1_2 = false /\ holds_1_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_2_1_2 = true /\ holds_2_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_2_1_2 = false /\ holds_2_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_3_1_2 = true /\ holds_3_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_3_1_2 = false /\ holds_3_1_3 = true) -> (primitive_1_2 = false );
+% fluent: capacity 
+constraint (holds_4_1_2 = true /\ holds_4_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_4_1_2 = false /\ holds_4_1_3 = true) -> (primitive_1_2 = false );
+% fluent: in 
+constraint (holds_5_1_2 = true /\ holds_5_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_5_1_2 = false /\ holds_5_1_3 = true) -> (primitive_1_2 = false );
+% fluent: capacity 
+constraint (holds_6_1_2 = true /\ holds_6_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_6_1_2 = false /\ holds_6_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_7_1_2 = true /\ holds_7_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_7_1_2 = false /\ holds_7_1_3 = true) -> (primitive_1_2 = false );
+% fluent: in 
+constraint (holds_8_1_2 = true /\ holds_8_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_8_1_2 = false /\ holds_8_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_9_1_2 = true /\ holds_9_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_9_1_2 = false /\ holds_9_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_10_1_2 = true /\ holds_10_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_10_1_2 = false /\ holds_10_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_11_1_2 = true /\ holds_11_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_11_1_2 = false /\ holds_11_1_3 = true) -> (primitive_1_2 = false );
+% fluent: at 
+constraint (holds_12_1_2 = true /\ holds_12_1_3 = false) -> (primitive_1_2 = false );
+constraint (holds_12_1_2 = false /\ holds_12_1_3 = true) -> (primitive_1_2 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 3 
+% fluent: at 
+constraint (holds_0_1_3 = true /\ holds_0_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_0_1_3 = false /\ holds_0_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_1_1_3 = true /\ holds_1_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_1_1_3 = false /\ holds_1_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_2_1_3 = true /\ holds_2_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_2_1_3 = false /\ holds_2_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_3_1_3 = true /\ holds_3_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_3_1_3 = false /\ holds_3_1_4 = true) -> (primitive_1_3 = false );
+% fluent: capacity 
+constraint (holds_4_1_3 = true /\ holds_4_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_4_1_3 = false /\ holds_4_1_4 = true) -> (primitive_1_3 = false );
+% fluent: in 
+constraint (holds_5_1_3 = true /\ holds_5_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_5_1_3 = false /\ holds_5_1_4 = true) -> (primitive_1_3 = false );
+% fluent: capacity 
+constraint (holds_6_1_3 = true /\ holds_6_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_6_1_3 = false /\ holds_6_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_7_1_3 = true /\ holds_7_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_7_1_3 = false /\ holds_7_1_4 = true) -> (primitive_1_3 = false );
+% fluent: in 
+constraint (holds_8_1_3 = true /\ holds_8_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_8_1_3 = false /\ holds_8_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_9_1_3 = true /\ holds_9_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_9_1_3 = false /\ holds_9_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_10_1_3 = true /\ holds_10_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_10_1_3 = false /\ holds_10_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_11_1_3 = true /\ holds_11_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_11_1_3 = false /\ holds_11_1_4 = true) -> (primitive_1_3 = false );
+% fluent: at 
+constraint (holds_12_1_3 = true /\ holds_12_1_4 = false) -> (primitive_1_3 = false );
+constraint (holds_12_1_3 = false /\ holds_12_1_4 = true) -> (primitive_1_3 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 4 
+% fluent: at 
+constraint (holds_0_1_4 = true /\ holds_0_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_0_1_4 = false /\ holds_0_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_1_1_4 = true /\ holds_1_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_1_1_4 = false /\ holds_1_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_2_1_4 = true /\ holds_2_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_2_1_4 = false /\ holds_2_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_3_1_4 = true /\ holds_3_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_3_1_4 = false /\ holds_3_1_5 = true) -> (primitive_1_4 = false );
+% fluent: capacity 
+constraint (holds_4_1_4 = true /\ holds_4_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_4_1_4 = false /\ holds_4_1_5 = true) -> (primitive_1_4 = false );
+% fluent: in 
+constraint (holds_5_1_4 = true /\ holds_5_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_5_1_4 = false /\ holds_5_1_5 = true) -> (primitive_1_4 = false );
+% fluent: capacity 
+constraint (holds_6_1_4 = true /\ holds_6_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_6_1_4 = false /\ holds_6_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_7_1_4 = true /\ holds_7_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_7_1_4 = false /\ holds_7_1_5 = true) -> (primitive_1_4 = false );
+% fluent: in 
+constraint (holds_8_1_4 = true /\ holds_8_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_8_1_4 = false /\ holds_8_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_9_1_4 = true /\ holds_9_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_9_1_4 = false /\ holds_9_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_10_1_4 = true /\ holds_10_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_10_1_4 = false /\ holds_10_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_11_1_4 = true /\ holds_11_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_11_1_4 = false /\ holds_11_1_5 = true) -> (primitive_1_4 = false );
+% fluent: at 
+constraint (holds_12_1_4 = true /\ holds_12_1_5 = false) -> (primitive_1_4 = false );
+constraint (holds_12_1_4 = false /\ holds_12_1_5 = true) -> (primitive_1_4 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 5 
+% fluent: at 
+constraint (holds_0_1_5 = true /\ holds_0_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_0_1_5 = false /\ holds_0_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_1_1_5 = true /\ holds_1_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_1_1_5 = false /\ holds_1_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_2_1_5 = true /\ holds_2_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_2_1_5 = false /\ holds_2_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_3_1_5 = true /\ holds_3_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_3_1_5 = false /\ holds_3_1_6 = true) -> (primitive_1_5 = false );
+% fluent: capacity 
+constraint (holds_4_1_5 = true /\ holds_4_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_4_1_5 = false /\ holds_4_1_6 = true) -> (primitive_1_5 = false );
+% fluent: in 
+constraint (holds_5_1_5 = true /\ holds_5_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_5_1_5 = false /\ holds_5_1_6 = true) -> (primitive_1_5 = false );
+% fluent: capacity 
+constraint (holds_6_1_5 = true /\ holds_6_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_6_1_5 = false /\ holds_6_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_7_1_5 = true /\ holds_7_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_7_1_5 = false /\ holds_7_1_6 = true) -> (primitive_1_5 = false );
+% fluent: in 
+constraint (holds_8_1_5 = true /\ holds_8_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_8_1_5 = false /\ holds_8_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_9_1_5 = true /\ holds_9_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_9_1_5 = false /\ holds_9_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_10_1_5 = true /\ holds_10_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_10_1_5 = false /\ holds_10_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_11_1_5 = true /\ holds_11_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_11_1_5 = false /\ holds_11_1_6 = true) -> (primitive_1_5 = false );
+% fluent: at 
+constraint (holds_12_1_5 = true /\ holds_12_1_6 = false) -> (primitive_1_5 = false );
+constraint (holds_12_1_5 = false /\ holds_12_1_6 = true) -> (primitive_1_5 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 6 
+% fluent: at 
+constraint (holds_0_1_6 = true /\ holds_0_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_0_1_6 = false /\ holds_0_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_1_1_6 = true /\ holds_1_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_1_1_6 = false /\ holds_1_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_2_1_6 = true /\ holds_2_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_2_1_6 = false /\ holds_2_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_3_1_6 = true /\ holds_3_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_3_1_6 = false /\ holds_3_1_7 = true) -> (primitive_1_6 = false );
+% fluent: capacity 
+constraint (holds_4_1_6 = true /\ holds_4_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_4_1_6 = false /\ holds_4_1_7 = true) -> (primitive_1_6 = false );
+% fluent: in 
+constraint (holds_5_1_6 = true /\ holds_5_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_5_1_6 = false /\ holds_5_1_7 = true) -> (primitive_1_6 = false );
+% fluent: capacity 
+constraint (holds_6_1_6 = true /\ holds_6_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_6_1_6 = false /\ holds_6_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_7_1_6 = true /\ holds_7_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_7_1_6 = false /\ holds_7_1_7 = true) -> (primitive_1_6 = false );
+% fluent: in 
+constraint (holds_8_1_6 = true /\ holds_8_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_8_1_6 = false /\ holds_8_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_9_1_6 = true /\ holds_9_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_9_1_6 = false /\ holds_9_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_10_1_6 = true /\ holds_10_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_10_1_6 = false /\ holds_10_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_11_1_6 = true /\ holds_11_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_11_1_6 = false /\ holds_11_1_7 = true) -> (primitive_1_6 = false );
+% fluent: at 
+constraint (holds_12_1_6 = true /\ holds_12_1_7 = false) -> (primitive_1_6 = false );
+constraint (holds_12_1_6 = false /\ holds_12_1_7 = true) -> (primitive_1_6 = false );
+
+
+% FRAME AXIOM Layer: 1 Cell: 7 
+% fluent: at 
+constraint (holds_0_1_7 = true /\ holds_0_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_0_1_7 = false /\ holds_0_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_1_1_7 = true /\ holds_1_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_1_1_7 = false /\ holds_1_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_2_1_7 = true /\ holds_2_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_2_1_7 = false /\ holds_2_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_3_1_7 = true /\ holds_3_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_3_1_7 = false /\ holds_3_1_8 = true) -> (primitive_1_7 = false );
+% fluent: capacity 
+constraint (holds_4_1_7 = true /\ holds_4_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_4_1_7 = false /\ holds_4_1_8 = true) -> (primitive_1_7 = false );
+% fluent: in 
+constraint (holds_5_1_7 = true /\ holds_5_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_5_1_7 = false /\ holds_5_1_8 = true) -> (primitive_1_7 = false );
+% fluent: capacity 
+constraint (holds_6_1_7 = true /\ holds_6_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_6_1_7 = false /\ holds_6_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_7_1_7 = true /\ holds_7_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_7_1_7 = false /\ holds_7_1_8 = true) -> (primitive_1_7 = false );
+% fluent: in 
+constraint (holds_8_1_7 = true /\ holds_8_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_8_1_7 = false /\ holds_8_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_9_1_7 = true /\ holds_9_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_9_1_7 = false /\ holds_9_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_10_1_7 = true /\ holds_10_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_10_1_7 = false /\ holds_10_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_11_1_7 = true /\ holds_11_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_11_1_7 = false /\ holds_11_1_8 = true) -> (primitive_1_7 = false );
+% fluent: at 
+constraint (holds_12_1_7 = true /\ holds_12_1_8 = false) -> (primitive_1_7 = false );
+constraint (holds_12_1_7 = false /\ holds_12_1_8 = true) -> (primitive_1_7 = false );
+
+
+
+% RULE 9 - action mutual exclusion. No two actions may happen simultaneously
+% LAYER: 1 CELL: 0
+% none
+% LAYER: 1 CELL: 1
+% none
+% LAYER: 1 CELL: 2
+% none
+% LAYER: 1 CELL: 3
+% none
+% LAYER: 1 CELL: 4
+% none
+% LAYER: 1 CELL: 5
+% none
+% LAYER: 1 CELL: 6
+% none
+% LAYER: 1 CELL: 7
+% none
+% LAYER: 1 CELL: 8
+% none
+
