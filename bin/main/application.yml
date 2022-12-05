@@ -1,0 +1,7 @@
+micronaut:
+  application:
+    name: optiplan_demo
+netty:
+  default:
+    allocator:
+      max-order: 3
