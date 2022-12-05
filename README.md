@@ -118,14 +118,14 @@ if (a.getUnconditionalEffect().getNegativeFluents().get(predId)) {
 ```
 So, for **Childsnack 15**, for example, it took 47 seconds to run all the `taskToAction`s, and 10s to populate the `negTaskIds` and `posTaskIds`. While the rest of the code (getting tasks, writing to file etc) took 1.5 seconds in total. 
 
-**Benchmarking (VERY BRIEFLY)**
+### 🔴🔴🔴 Benchmarking (VERY BRIEFLY)🔴🔴🔴
 I have prepared the benchmark execution times in the following table:
 https://docs.google.com/spreadsheets/d/1ZqlqHV4ZCYHVv72KFkKGbzqhbpnesn2gfeIepcVeNbc/edit?usp=sharing
 
 After running the planner on **Childsnack** (domain has 2 methods - `serve with/without gluten`, therefore the tree will have only 2 layers) **Problem 15**, I get the following memory profile:
 ![](https://i.ibb.co/0C63sM2/heap-Evolution.png)
 
-Problem in **P2** essentially corresponds to
+Problem in **P2** happens when I'm instantiating the first layer data structure, and essentially corresponds to
 ```java
 for (int j = 0; j < problem.getMethods().size(); j++) {
                 Method m = problem.getMethods().get(j);
@@ -134,7 +134,7 @@ for (int j = 0; j < problem.getMethods().size(); j++) {
                 }
               }
 ```
-where `cell` is a datastructure containing possible actions and methods executable in this cell.
+where `cell` is a data structure containing possible actions and methods executable in this cell.
 
 Problem in **frameAxioms for layer 2** essentially corresponds to a utility function that transforms tasks into actions (to get the effects for the frame axioms):
 ```java
